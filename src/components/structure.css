@@ -15,7 +15,7 @@
 
 
 
-td, th {
+td {
     background: white;
     color: darkblue;
     text-align: center;
@@ -28,4 +28,10 @@ td, th {
     align-items: center;
     text-align: center;
     border: 0.5px solid skyblue;
+}
+
+td:active {
+    box-shadow: 0px 0px #009de4;
+    top: 4px;
+
 }

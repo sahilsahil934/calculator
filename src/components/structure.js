@@ -11,7 +11,7 @@ class Structure extends React.Component {
         mode: true
     };
 
-
+    // saving of numbers and operation in the array
     historyRecord = () => {
         
         let result = "";
@@ -24,14 +24,18 @@ class Structure extends React.Component {
         return result
     }
 
+    // all operation on clickng the button
     clickedButton = (value) => {
 
         let num = this.state.number
+        // if interger is inputed
         if (Number.isInteger(value) || value === '.')
         {
             num = num + String(value)
             this.setState({ number: num, operation: ''})
         }
+
+        // other than interger is inputed
         else
         {
             if (value === '+' || value === '*' || value === '-' || value === '/' || value === '%')
@@ -39,6 +43,7 @@ class Structure extends React.Component {
                 let operation = this.state.operation
                 if (num !== '')
                 {
+                    // if new operation is changed
                     if (operation === '-' || operation === '+' || operation === '/' || operation === '*')
                     {
                         let arr = this.state.data
@@ -56,6 +61,7 @@ class Structure extends React.Component {
                 }  
                 else
                 {
+                    // if new operation is changed
                     if (operation === '-' || operation === '+' || operation === '/' || operation === '*')
                     {
                         let arr = this.state.data
@@ -74,11 +80,13 @@ class Structure extends React.Component {
                
             }
             
+            // clearing all data
             else if (value === 'C')
             {
                 this.setState({data: [], number: '', operation: '', result: 0, mode: true})
             }
 
+            // on pressing equals
             else if (value === '=')
             {
                 
@@ -91,6 +99,7 @@ class Structure extends React.Component {
               
             }
 
+            // changing number of negative positive
             else if (value === 'm')
             {
                 let num = this.state.number
@@ -111,6 +120,7 @@ class Structure extends React.Component {
 
     }
 
+    // calculating the result on pressing =
     calculateResult = (num) => {
 
         let result = 0
@@ -166,39 +176,39 @@ class Structure extends React.Component {
                     </div>
                 </div>
                 <table className="table">
-                    <tbody>
-                        <tr>
-                        <th style={{backgroundColor: "lightgrey"}} onClick={() => this.clickedButton('C')}>C</th>
-                        <td style={{backgroundColor: "lightgrey"}} onClick={() => this.clickedButton('m')}>+/-</td>
-                        <td style={{backgroundColor: "lightgrey"}} onClick={() => this.clickedButton('%')}>%</td>
-                        <td style={{backgroundColor: "rgb(91, 98, 106)"}} onClick={() => this.clickedButton('/')}>÷</td>
-                        </tr>
-                        <tr>
-                        <th onClick={() => this.clickedButton(7)}>7</th>
-                        <td onClick={() => this.clickedButton(8)}>8</td>
-                        <td onClick={() => this.clickedButton(9)}>9</td>
-                        <td style={{backgroundColor: "rgb(91, 98, 106)"}} onClick={() => this.clickedButton('*')}>X</td>
-                        </tr>
-                        <tr>
-                        <th onClick={() => this.clickedButton(4)}>4</th>
-                        <td onClick={() => this.clickedButton(5)}>5</td>
-                        <td onClick={() => this.clickedButton(6)}>6</td>
-                        <td style={{backgroundColor: "rgb(91, 98, 106)"}} onClick={() => this.clickedButton('-')}>-</td>
-                        </tr>
-                        <tr>
-                        <th onClick={() => this.clickedButton(1)}>1</th>
-                        <td onClick={() => this.clickedButton(2)}>2</td>
-                        <td onClick={() => this.clickedButton(3)}>3</td>
-                        <td style={{backgroundColor: "rgb(91, 98, 106)"}} onClick={() => this.clickedButton('+')}>+</td>
-                        </tr>
-                        <tr>
-                        <th onClick={() => this.clickedButton(0)}>0</th>
-                        <td></td>
-                        <td onClick={() => this.clickedButton('.')}>.</td>
-                        <td style={{backgroundColor: "yellow"}}onClick={() => this.clickedButton('=')}>=</td>
-                        </tr>
-                    </tbody>
-                    </table>
+                        <tbody>
+                            <tr>
+                            <td style={{backgroundColor: "lightgrey", color: "#45b3e0"}} onClick={() => this.clickedButton('C')}>C</td>
+                            <td style={{backgroundColor: "lightgrey", color: "#45b3e0"}} onClick={() => this.clickedButton('m')}>+/-</td>
+                            <td style={{backgroundColor: "lightgrey", color: "#45b3e0"}} onClick={() => this.clickedButton('%')}>%</td>
+                            <td style={{backgroundColor: "rgb(91, 98, 106)", color: "white"}} onClick={() => this.clickedButton('/')}>÷</td>
+                            </tr>
+                            <tr>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(7)}>7</td>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(8)}>8</td>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(9)}>9</td>
+                            <td style={{backgroundColor: "rgb(91, 98, 106)", color: "white"}} onClick={() => this.clickedButton('*')}>X</td>
+                            </tr>
+                            <tr>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(4)}>4</td>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(5)}>5</td>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(6)}>6</td>
+                            <td style={{backgroundColor: "rgb(91, 98, 106)", color: "white"}} onClick={() => this.clickedButton('-')}>-</td>
+                            </tr>
+                            <tr>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(1)}>1</td>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(2)}>2</td>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(3)}>3</td>
+                            <td style={{backgroundColor: "rgb(91, 98, 106)", color: "white"}} onClick={() => this.clickedButton('+')}>+</td>
+                            </tr>
+                            <tr>
+                            <td style={{color: "#45b3e0"}} onClick={() => this.clickedButton(0)}>0</td>
+                            <td></td>
+                            <td style={{color: "#45b3e0"}}  onClick={() => this.clickedButton('.')}>.</td>
+                            <td style={{backgroundColor: "#e6e600", color: "white"}}onClick={() => this.clickedButton('=')}>=</td>
+                            </tr>
+                        </tbody>
+                        </table>
                 </div>                 
         );
     }
