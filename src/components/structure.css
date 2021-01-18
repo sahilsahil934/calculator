@@ -16,6 +16,7 @@
 
 
 td {
+    padding-top: 16px !important;
     background: white;
     color: darkblue;
     text-align: center;
