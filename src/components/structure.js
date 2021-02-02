@@ -1,5 +1,7 @@
 import React from 'react';
 import './structure.css'
+import LowerStruct from './LowerStruct'
+import UpperStructure from './UpperStructure'
 
 class Structure extends React.Component {
 
@@ -168,47 +170,8 @@ class Structure extends React.Component {
         return (
             
             <div className="container">
-                <div className="card">
-                    <h1 className="card-header">Calculator</h1>
-                    <div className="screen">
-                        <p className="card-title">{this.historyRecord()}</p>
-                        <h2 className="card-title">{(this.state.operation === '=') ? this.state.result : this.state.number}</h2>
-                    </div>
-                </div>
-                <table className="table">
-                        <tbody>
-                            <tr>
-                            <td style={{backgroundColor: "#f5f5f5", color: "darkgray"}} onClick={() => this.clickedButton('C')}>C</td>
-                            <td style={{backgroundColor: "#f5f5f5", color: "darkgray"}} onClick={() => this.clickedButton('m')}>+/-</td>
-                            <td style={{backgroundColor: "#f5f5f5", color: "darkgray"}} onClick={() => this.clickedButton('%')}>%</td>
-                            <td style={{backgroundColor: "#3c4b5e", color: "white"}} onClick={() => this.clickedButton('/')}>÷</td>
-                            </tr>
-                            <tr>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(7)}>7</td>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(8)}>8</td>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(9)}>9</td>
-                            <td style={{backgroundColor: "#3c4b5e", color: "white"}} onClick={() => this.clickedButton('*')}>X</td>
-                            </tr>
-                            <tr>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(4)}>4</td>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(5)}>5</td>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(6)}>6</td>
-                            <td style={{backgroundColor: "#3c4b5e", color: "white"}} onClick={() => this.clickedButton('-')}>-</td>
-                            </tr>
-                            <tr>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(1)}>1</td>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(2)}>2</td>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(3)}>3</td>
-                            <td style={{backgroundColor: "#3c4b5e", color: "white"}} onClick={() => this.clickedButton('+')}>+</td>
-                            </tr>
-                            <tr>
-                            <td style={{color: "darkgray"}} onClick={() => this.clickedButton(0)}>0</td>
-                            <td></td>
-                            <td style={{color: "darkgray"}}  onClick={() => this.clickedButton('.')}>.</td>
-                            <td style={{backgroundColor: "#e7c313", color: "white"}}onClick={() => this.clickedButton('=')}>=</td>
-                            </tr>
-                        </tbody>
-                        </table>
+                    <UpperStructure state={this.state} historyRecord={this.historyRecord} />
+                    <LowerStruct clickedButton={this.clickedButton} />
                 </div>                 
         );
     }
